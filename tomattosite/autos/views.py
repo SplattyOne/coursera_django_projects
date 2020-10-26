@@ -28,12 +28,12 @@ class MakeCreate(LoginRequiredMixin, CreateView):
     fields = '__all__'
     success_url = reverse_lazy('autos:all')
 
-class MakeUpdate(LoginRequiredMixin, View):
+class MakeUpdate(LoginRequiredMixin, UpdateView):
     model = Make
     fields = '__all__'
     success_url = reverse_lazy('autos:all')
 
-class MakeDelete(LoginRequiredMixin, View):
+class MakeDelete(LoginRequiredMixin, DeleteView):
     model = Make
     fields = '__all__'
     success_url = reverse_lazy('autos:all')
