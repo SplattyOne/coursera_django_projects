@@ -2,6 +2,9 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 
+# ForeignKey, ManyToManyField, OneToOneField
+# on_delete=models.CASCADE or on_delete=models.SET_NULL, null=True
+
 class Make(models.Model):
     name = models.CharField(
             max_length=200, 
