@@ -27,12 +27,12 @@
     <a href="{% url 'ads:ad_delete' ad.id %}"><i class="fa fa-trash"></i></a>
   {% endif %}
 </span>
-<h1>{{ ad.title }}</h1>
+<h1>{{ ad.title }} ({{ ad.price }} $)</h1>
 {% if ad.content_type %}
   <img style="float:right; max-width:50%;" src="{% url 'ads:ad_picture' ad.id %}" onclick="document.getElementById('overlay').style.display = 'block';">
 {% endif %}
 <p>
-  {{ ad.text }} ({{ ad.price }} $)
+  {{ ad.text }}
 </p>
 {% if user.is_authenticated %}
   <br clear="all"/>
