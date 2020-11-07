@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'social_django',  
     'home.apps.HomeConfig', 
     'ads.apps.AdsConfig',  
+    'unesco.apps.UnescoConfig',
 
     # Sample Applications - don't copy
     # 'hello.apps.HelloConfig',
@@ -176,7 +177,7 @@ REST_FRAMEWORK = {
 
 # Configure the social login
 try:
-    from . import github_settings 
+    from . import github_settings
     SOCIAL_AUTH_GITHUB_KEY = github_settings.SOCIAL_AUTH_GITHUB_KEY
     SOCIAL_AUTH_GITHUB_SECRET = github_settings.SOCIAL_AUTH_GITHUB_SECRET
 except:
