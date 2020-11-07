@@ -4,6 +4,9 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from ads.humanize import naturalsize
 
 
+class CommentForm(forms.Form):
+    comment = forms.CharField(required=True, max_length=500, min_length=3, strip=True)
+
 # Create the form class.
 class CreateForm(forms.ModelForm):
     max_upload_limit = 2 * 1024 * 1024
