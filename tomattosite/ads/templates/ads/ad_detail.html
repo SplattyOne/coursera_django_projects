@@ -34,8 +34,8 @@
 <p>
   {{ ad.text }}
 </p>
+<br clear="all"/>
 {% if user.is_authenticated %}
-  <br clear="all"/>
   <p>
       {% load crispy_forms_tags %}
       <form method="post" action="{% url 'ads:ad_comment_create' ad.id %}">
