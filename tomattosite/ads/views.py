@@ -117,8 +117,8 @@ from django.db.utils import IntegrityError
 class AddFavoriteView(LoginRequiredMixin, View):
     def post(self, request, pk) :
         print("Add PK", pk)
-        t = get_object_or_404(Ad, id=pk)
-        fav = Fav(user=request.user, thing=t)
+        get_ad = get_object_or_404(Ad, id=pk)
+        fav = Fav(user=request.user, ad=get_ad)
         try:
             fav.save()  # In case of duplicate key
         except IntegrityError as e:
@@ -129,9 +129,9 @@ class AddFavoriteView(LoginRequiredMixin, View):
 class DeleteFavoriteView(LoginRequiredMixin, View):
     def post(self, request, pk) :
         print("Delete PK", pk)
-        t = get_object_or_404(Ad, id=pk)
+        get_ad = get_object_or_404(Ad, id=pk)
         try:
-            fav = Fav.objects.get(user=request.user, thing=t).delete()
+            fav = Fav.objects.get(user=request.user, ad=get_ad).delete()
         except Fav.DoesNotExist as e:
             pass
 
